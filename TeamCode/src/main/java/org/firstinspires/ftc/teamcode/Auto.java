@@ -8,7 +8,6 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class Auto extends LinearOpMode {
 
     private BrainSTEMRobot robot;
-
     private ElapsedTime runtime = new ElapsedTime();
 
 
@@ -21,18 +20,27 @@ public class Auto extends LinearOpMode {
 
         while (!opModeIsActive()){
 
-            telemetry.addData("OpMode State :", "Init");
+            telemetry.addData("OpMode State: ", "Init");
             telemetry.update();
         }
 
-
-        // moves robot forward for 1 second
+        // move robot forward for 1 second
         runtime.reset();
         robot.setDTMotorPowers(0.5,0.5,0.5,0.5);
         while (runtime.seconds() < 1);
         robot.stop();
 
+        // turn robot left for 0.5 seconds
+        runtime.reset();
+        robot.setDTMotorPowers(-0.3,0.3,-0.3,0.3);
+        while (runtime.seconds() < 0.5);
+        robot.stop();
 
+        // turn robot right for 0.5 seconds
+        runtime.reset();
+        robot.setDTMotorPowers(0.3,-0.3,0.3,-0.3);
+        while (runtime.seconds() < 0.5);
+        robot.stop();
 
     }
 }

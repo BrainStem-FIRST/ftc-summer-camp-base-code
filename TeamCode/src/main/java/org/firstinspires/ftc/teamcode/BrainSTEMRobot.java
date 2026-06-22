@@ -10,19 +10,18 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 public class BrainSTEMRobot {
 
-    // Initializing the drivetrain
+    // Initializing Drivetrain
     public DcMotorEx frontLeft;
     public DcMotorEx backLeft;
     public DcMotorEx frontRight;
     public DcMotorEx backRight;
 
-    // Example Motors and Servos
 
-    public Servo exampleServo;
-    public DcMotorEx exampleMotor;
+    // Initializing Subsystems
+    // public ExampleSubsystem exampleSubsystem;
 
 
-    // Don't touch these
+    // Don't Touch These
     public Telemetry telemetry;
     public OpMode opMode;
 
@@ -31,13 +30,13 @@ public class BrainSTEMRobot {
         this.telemetry = telemetry;
         this.opMode = opMode;
 
-
         // Defining the Motors
-        frontLeft =  (DcMotorEx)hwMap.dcMotor.get("FL");
+        frontLeft = (DcMotorEx)hwMap.dcMotor.get("FL");
         frontRight = (DcMotorEx)hwMap.dcMotor.get("FR");
-        backLeft =   (DcMotorEx)hwMap.dcMotor.get("BL");
-        backRight =  (DcMotorEx)hwMap.dcMotor.get("BR");
+        backLeft = (DcMotorEx)hwMap.dcMotor.get("BL");
+        backRight = (DcMotorEx)hwMap.dcMotor.get("BR");
 
+        // Reverse Direction if Needed
         frontLeft.setDirection(DcMotor.Direction.FORWARD);
         frontRight.setDirection(DcMotor.Direction.FORWARD);
         backLeft.setDirection(DcMotor.Direction.FORWARD);
@@ -47,6 +46,9 @@ public class BrainSTEMRobot {
         frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        // Create Subsystem
+        // exampleSubsystem = new ExampleSubsystem(hwMap, telemetry);
 
     }
 
@@ -63,7 +65,4 @@ public class BrainSTEMRobot {
         backLeft.setPower(0);
         backRight.setPower(0);
     }
-
-
-
 }
